@@ -53,8 +53,6 @@ body {
     /* Removed hover animation */
 }
 
-/* REMOVED: .page-title::after animation */
-
 /* Profile Section */
 .profile-section {
     display: flex;
@@ -128,10 +126,7 @@ body {
     font-size: 40px;
     font-weight: 700;
     margin-bottom: 10px;
-    /* Removed underline animation */
 }
-
-/* REMOVED: .name::after underline */
 
 .title {
     font-size: 24px;
@@ -317,26 +312,19 @@ body {
 .about-me-full {
     width: 100%;
     margin-bottom: 40px;
-    /* Removed position: relative and ::before vertical line */
 }
-
-/* REMOVED: .about-me-full::before vertical line */
 
 .about-me-full h2 {
     font-size: 24px;
     font-weight: 700;
     margin-bottom: 15px;
     color: #6b6b69;
-    /* Removed padding-left and ::before */
 }
-
-/* REMOVED: .about-me-full h2::before */
 
 .about-me-full p {
     font-size: 17px;
     line-height: 1.5;
     margin: 0;
-    /* Removed hover animations */
 }
 
 /* Main Content Grid */
@@ -440,6 +428,14 @@ section:hover h2::after {
     font-size: 20px; /* Smaller than default 24px */
 }
 
+/* FIXED: Lucidchart and Canva Icon Styling */
+.lucidchart-icon img,
+.canva-icon img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+}
+
 .tech-stack .tech-item {
     background-color: #efefef;
     border-radius: 15px;
@@ -510,26 +506,6 @@ section:hover h2::after {
 .tech-icon svg {
     width: 100%;
     height: 100%;
-}
-
-/* Lucidchart Icon - Using your local PNG image */
-.lucidchart-icon {
-    background-image: url('/Users/ukiidap/Portfolio/pngegg.png');
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    width: 32px;
-    height: 32px;
-}
-
-/* Canva Icon - Using your local webp image */
-.canva-icon {
-    background-image: url('/Users/ukiidap/Portfolio/Canva.webp');
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    width: 32px;
-    height: 32px;
 }
 
 /* Devicon specific styling */
