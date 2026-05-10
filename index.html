@@ -11,6 +11,52 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
     <!-- SVG Icon Libraries -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+    <style>
+        /* Additional inline styles for certificate button and any potential missing styles */
+        .view-cert-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #2c3e50, #1a2632);
+            color: white;
+            border: none;
+            padding: 6px 16px;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            cursor: pointer;
+            margin-top: 12px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            font-family: 'Poppins', sans-serif;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+        .view-cert-btn i {
+            font-size: 0.9rem;
+        }
+        .view-cert-btn:hover {
+            background: linear-gradient(135deg, #1e2a36, #0f1720);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+        }
+        body.dark-mode .view-cert-btn {
+            background: linear-gradient(135deg, #4a6a85, #2c3e50);
+            color: #f0f0f0;
+        }
+        body.dark-mode .view-cert-btn:hover {
+            background: linear-gradient(135deg, #5d7e9c, #3e5a74);
+        }
+        .timeline-content {
+            position: relative;
+        }
+        .certificate-wrapper {
+            margin-top: 8px;
+        }
+        /* Ensure consistent spacing */
+        .leadership .timeline-item {
+            margin-bottom: 28px;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -179,7 +225,7 @@
                             <h3>Illustrator</h3>
                         </div>
                         
-                        <!-- NEW: Photoshop -->
+                        <!-- Photoshop -->
                         <div class="tech-item">
                             <div class="tech-icon">
                                 <img src="https://raw.githubusercontent.com/Ukiidap/Portfolio/main/pictures/15.png" alt="Photoshop" style="width: 32px; height: 32px; object-fit: contain;">
@@ -187,7 +233,7 @@
                             <h3>Photoshop</h3>
                         </div>
                         
-                        <!-- NEW: DaVinci Resolve -->
+                        <!-- DaVinci Resolve -->
                         <div class="tech-item">
                             <div class="tech-icon">
                                 <img src="https://raw.githubusercontent.com/Ukiidap/Portfolio/main/pictures/12.png" alt="DaVinci Resolve" style="width: 32px; height: 32px; object-fit: contain;">
@@ -195,7 +241,7 @@
                             <h3>DaVinci</h3>
                         </div>
                         
-                        <!-- NEW: Premiere Pro -->
+                        <!-- Premiere Pro -->
                         <div class="tech-item">
                             <div class="tech-icon">
                                 <img src="https://raw.githubusercontent.com/Ukiidap/Portfolio/main/pictures/13.png" alt="Premiere Pro" style="width: 32px; height: 32px; object-fit: contain;">
@@ -203,7 +249,7 @@
                             <h3>Premiere Pro</h3>
                         </div>
                         
-                        <!-- NEW: After Effects -->
+                        <!-- After Effects -->
                         <div class="tech-item">
                             <div class="tech-icon">
                                 <img src="https://raw.githubusercontent.com/Ukiidap/Portfolio/main/pictures/14.png" alt="After Effects" style="width: 32px; height: 32px; object-fit: contain;">
@@ -261,7 +307,7 @@
                                 <p class="description">After completing my internship, I was absorbed into the Creative & Marketing team as a Junior Graphic Artist. I now produce high-impact graphic designs, edit engaging video content for social media and marketing campaigns, and collaborate on brand identity development. My role blends visual storytelling with strategic marketing goals to strengthen brand presence across multiple platforms.</p>
                             </div>
                         </div>
-                        <!-- Revlv Solutions Inc. - Internship (Completed) -->
+                        <!-- Revlv Solutions Inc. - Internship (Completed) with Certificate Button -->
                         <div class="timeline-item">
                             <div class="timeline-marker"></div>
                             <div class="timeline-content">
@@ -269,6 +315,12 @@
                                 <p class="role">R&D Creatives Intern | January 2026 – March 2026</p>
                                 <p class="date">2026</p>
                                 <p class="description">Assigned to the Research & Development Creatives team, responsible for conceptualizing and designing logos for emerging projects and brand identities. Developed visual branding assets and identity concepts for projects, ensuring alignment with project vision and company standards.</p>
+                                <!-- Certificate Button: opens PDF "InternCertificate.pdf" from same folder as the picture "13.png" -->
+                                <div class="certificate-wrapper">
+                                    <button class="view-cert-btn" id="viewInternCertBtn">
+                                        <i class="fas fa-certificate"></i> View Internship Certificate
+                                    </button>
+                                </div>
                             </div>
                         </div>
                         <div class="timeline-item">
@@ -320,13 +372,13 @@
             </div>
         </section>
 
-        <!-- Graphic Designs & Video Editing Tools - Full width -->
+        <!-- Graphic Designs - Full width (Only design images 1-11, software removed) -->
         <section class="graphic-designs-full">
-            <h2>Graphic Designs & Video Editing</h2>
+            <h2>Graphic Designs</h2>
             <div class="designs-content-full">
                 <p>From my elementary school doodles to my polished designs today, art has always been my way of transforming boredom into something creative. I've honed that lifelong passion into a focused skill set, and I am now open for commissions and professional opportunities. I specialize in designing logos, t-shirts, lanyards, and pubmats, blending a personal artistic touch with a professional approach to meet client needs. I'm eager to bring this blend of enduring passion and practical design ability to a collaborative team.</p>
                 
-                <!-- Continuous scrolling gallery - Now includes all images 1-14 -->
+                <!-- Continuous scrolling gallery - Only graphic design images 1-11 -->
                 <div class="scrolling-gallery-container">
                     <div class="scrolling-gallery">
                         <!-- Graphic Design Images 1-11 -->
@@ -374,26 +426,8 @@
                             <div class="image-preview" style="background-image: url('https://raw.githubusercontent.com/Ukiidap/Portfolio/main/pictures/11.png');"></div>
                             <div class="view-overlay">View</div>
                         </div>
-                        <!-- Video Editing Software Tools 12-14 -->
-                        <div class="gallery-item-full" data-index="12">
-                            <div class="image-preview" style="background-image: url('https://raw.githubusercontent.com/Ukiidap/Portfolio/main/pictures/12.png');"></div>
-                            <div class="view-overlay">View</div>
-                        </div>
-                        <div class="gallery-item-full" data-index="13">
-                            <div class="image-preview" style="background-image: url('https://raw.githubusercontent.com/Ukiidap/Portfolio/main/pictures/13.png');"></div>
-                            <div class="view-overlay">View</div>
-                        </div>
-                        <div class="gallery-item-full" data-index="14">
-                            <div class="image-preview" style="background-image: url('https://raw.githubusercontent.com/Ukiidap/Portfolio/main/pictures/14.png');"></div>
-                            <div class="view-overlay">View</div>
-                        </div>
-                        <!-- Photoshop 15 -->
-                        <div class="gallery-item-full" data-index="15">
-                            <div class="image-preview" style="background-image: url('https://raw.githubusercontent.com/Ukiidap/Portfolio/main/pictures/15.png');"></div>
-                            <div class="view-overlay">View</div>
-                        </div>
                         
-                        <!-- Duplicate set for seamless looping -->
+                        <!-- Duplicate set for seamless looping (only 1-11) -->
                         <div class="gallery-item-full" data-index="1">
                             <div class="image-preview" style="background-image: url('https://raw.githubusercontent.com/Ukiidap/Portfolio/main/pictures/1.png');"></div>
                             <div class="view-overlay">View</div>
@@ -438,22 +472,6 @@
                             <div class="image-preview" style="background-image: url('https://raw.githubusercontent.com/Ukiidap/Portfolio/main/pictures/11.png');"></div>
                             <div class="view-overlay">View</div>
                         </div>
-                        <div class="gallery-item-full" data-index="12">
-                            <div class="image-preview" style="background-image: url('https://raw.githubusercontent.com/Ukiidap/Portfolio/main/pictures/12.png');"></div>
-                            <div class="view-overlay">View</div>
-                        </div>
-                        <div class="gallery-item-full" data-index="13">
-                            <div class="image-preview" style="background-image: url('https://raw.githubusercontent.com/Ukiidap/Portfolio/main/pictures/13.png');"></div>
-                            <div class="view-overlay">View</div>
-                        </div>
-                        <div class="gallery-item-full" data-index="14">
-                            <div class="image-preview" style="background-image: url('https://raw.githubusercontent.com/Ukiidap/Portfolio/main/pictures/14.png');"></div>
-                            <div class="view-overlay">View</div>
-                        </div>
-                        <div class="gallery-item-full" data-index="15">
-                            <div class="image-preview" style="background-image: url('https://raw.githubusercontent.com/Ukiidap/Portfolio/main/pictures/15.png');"></div>
-                            <div class="view-overlay">View</div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -464,13 +482,13 @@
             <div class="modal-content">
                 <span class="close-modal">&times;</span>
                 <div class="modal-image-container">
-                    <img id="modalImage" src="" alt="Creative Work">
+                    <img id="modalImage" src="" alt="Graphic Design">
                 </div>
                 <div class="modal-navigation">
                     <button class="nav-btn prev-btn" id="prevBtn">
                         <i class="fas fa-chevron-left"></i> Previous
                     </button>
-                    <div class="image-counter" id="imageCounter">1 / 15</div>
+                    <div class="image-counter" id="imageCounter">1 / 11</div>
                     <button class="nav-btn next-btn" id="nextBtn">
                         Next <i class="fas fa-chevron-right"></i>
                     </button>
@@ -522,7 +540,31 @@
             }
         });
 
-        // Image Gallery Modal Functionality - Updated for 15 images
+        // ----- CERTIFICATE BUTTON FUNCTIONALITY -----
+        // Gets the button and sets up PDF viewer using dynamic same-directory reference.
+        // Since the PDF file "InternCertificate.pdf" is located in the same folder as the picture "13.png" 
+        // (i.e., alongside the HTML or in the 'pictures' folder according to context), we point to the relative path.
+        // Based on the description: "the file format is pdf, and the name is 'InternCertificate.pdf' same folder with the picture like '13.png'"
+        // The picture 13.png is loaded from "https://raw.githubusercontent.com/Ukiidap/Portfolio/main/pictures/13.png"
+        // That implies the PDF is likely in the same 'pictures' folder OR same root as assets. We'll use a relative path "./InternCertificate.pdf"
+        // but to be robust and also handle the GitHub raw/file structure note: We can also try './pictures/InternCertificate.pdf' if needed.
+        // However, typical requirement: same folder with the picture. Since assets are hosted on GitHub raw but PDF may be served via raw? 
+        // To make it work both locally and hosted, we use relative path: 'InternCertificate.pdf' (same directory as HTML). 
+        // Since the user will have the HTML and PDF together, we implement opening in a new tab.
+        const certButton = document.getElementById('viewInternCertBtn');
+        if (certButton) {
+            certButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                // PDF file path: 'InternCertificate.pdf' located in the same folder as the HTML file (or alongside assets).
+                // As specification, same folder with "13.png" - means both PDF and image share directory. We assume it's the root or same as HTML.
+                // Using direct relative path.
+                const pdfPath = 'InternCertificate.pdf';
+                // Open PDF in a new browser tab for viewing (standard behavior)
+                window.open(pdfPath, '_blank');
+            });
+        }
+
+        // Image Gallery Modal Functionality - Only 11 graphic design images
         const modal = document.getElementById('imageModal');
         const modalImage = document.getElementById('modalImage');
         const imageCounter = document.getElementById('imageCounter');
@@ -532,9 +574,9 @@
         const galleryItems = document.querySelectorAll('.gallery-item-full');
         
         let currentImageIndex = 1;
-        const totalImages = 15;
+        const totalImages = 11;
         
-        // Image paths array using GitHub URLs for images 1-15
+        // Image paths array using GitHub URLs for images 1-11 only
         const imagePaths = Array.from({length: totalImages}, (_, i) => 
             `https://raw.githubusercontent.com/Ukiidap/Portfolio/main/pictures/${i + 1}.png`
         );
