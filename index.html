@@ -60,58 +60,14 @@
             margin-bottom: 28px;
         }
         
-        /* MINIMALIST VIDEO STYLES - Perfectly Centered */
+        /* MINIMALIST VIDEO STYLES - Clean, no overlay button */
         .video-container-wrapper {
             position: relative;
             display: block;
             width: 100%;
             border-radius: 8px;
             overflow: hidden;
-            cursor: pointer;
             background: #000;
-        }
-        
-        /* Perfectly centered minimalist play button */
-        .video-play-overlay {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 56px;
-            height: 56px;
-            background-color: rgba(0, 0, 0, 0.6);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            z-index: 20;
-            transition: all 0.25s ease;
-            pointer-events: auto;
-            backdrop-filter: blur(2px);
-            border: 1.5px solid rgba(255, 255, 255, 0.3);
-        }
-        
-        /* YouTube-style play triangle - perfectly centered */
-        .video-play-overlay i {
-            font-size: 20px;
-            color: white;
-            margin: 0;
-            padding: 0;
-            line-height: 1;
-            transition: transform 0.2s ease;
-            position: relative;
-            left: 2px;
-        }
-        
-        .video-play-overlay:hover {
-            background-color: rgba(197, 197, 197, 0.9);
-            transform: translate(-50%, -50%) scale(1.05);
-            border-color: rgba(255, 255, 255, 0.8);
-        }
-        
-        .video-play-overlay:hover i {
-            transform: scale(1.05);
         }
         
         .inline-video-preview {
@@ -133,11 +89,7 @@
             aspect-ratio: 16 / 9;
             display: block;
             border: none;
-            pointer-events: none;
-        }
-        
-        .preview-iframe.active {
-            pointer-events: auto;
+            pointer-events: auto; /* Allow clicking directly on the video */
         }
         
         /* Minimalist label - subtle and clean */
@@ -240,13 +192,6 @@
             }
             .inline-video-preview {
                 margin-top: 16px;
-            }
-            .video-play-overlay {
-                width: 48px;
-                height: 48px;
-            }
-            .video-play-overlay i {
-                font-size: 18px;
             }
             .preview-label {
                 top: 8px;
@@ -386,15 +331,13 @@
                         <a href="https://www.figma.com/design/akQWL9abddNczoio0Vybf1/GymBro?node-id=0-1&t=Ofaf0sLFI12LSjQ0-1" target="_blank" class="project-btn figma-btn" title="View Figma Design"><i class="fab fa-figma"></i></a>
                     </div>
                     
-                    <!-- MINIMALIST VIDEO PREVIEW - Perfectly centered play button -->
+                    <!-- CLEAN VIDEO PREVIEW - No play button overlay, just the video thumbnail that plays directly -->
                     <div class="inline-video-preview">
                         <div class="video-container-wrapper">
                             <div class="preview-label">
                                 <i class="fab fa-youtube"></i> Demo Preview
                             </div>
-                            <div class="video-play-overlay" id="playVideoBtn">
-                                <i class="fas fa-play"></i>
-                            </div>
+                            <!-- Removed the video-play-overlay div completely -->
                             <iframe id="demoVideo" class="preview-iframe" src="https://www.youtube.com/embed/5buQMf33a6c" title="GymBro Demo Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                         </div>
                     </div>
@@ -445,7 +388,7 @@
             </div>
         </div>
 
-        <!-- Video Modal (keeping for any future use but not needed for preview) -->
+        <!-- Video Modal (kept for reference but not actively used) -->
         <div class="video-modal" id="videoModal">
             <div class="video-modal-content">
                 <span class="close-video-modal" id="closeVideoModal">&times;</span>
@@ -493,53 +436,12 @@
             });
         }
 
-        // MINIMALIST VIDEO PLAY FUNCTIONALITY - Perfectly centered and easy to use
-        const playButton = document.getElementById('playVideoBtn');
-        const videoIframe = document.getElementById('demoVideo');
-        let videoStarted = false;
+        // Video preview is now fully functional without any play button overlay
+        // The iframe loads directly, allowing users to click the YouTube embed's native play button
+        // This ensures a clean, minimalist interface with no extra UI elements
         
-        if (playButton && videoIframe) {
-            // Play button click handler
-            playButton.addEventListener('click', function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                
-                if (!videoStarted) {
-                    // Get the current video ID from src
-                    const videoId = '5buQMf33a6c';
-                    
-                    // Reload iframe with autoplay parameter
-                    videoIframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&enablejsapi=1`;
-                    
-                    // Enable pointer events on iframe so user can control video
-                    videoIframe.classList.add('active');
-                    
-                    // Hide the play button overlay with fade effect
-                    playButton.style.opacity = '0';
-                    setTimeout(() => {
-                        playButton.style.display = 'none';
-                    }, 200);
-                    
-                    videoStarted = true;
-                }
-            });
-            
-            // Also allow clicking anywhere on the video container to play
-            const videoContainer = document.querySelector('.video-container-wrapper');
-            if (videoContainer) {
-                videoContainer.addEventListener('click', function(e) {
-                    // Don't trigger if clicking on the play button (already handled above)
-                    if (e.target === playButton || (playButton && playButton.contains(e.target))) {
-                        return;
-                    }
-                    
-                    if (!videoStarted) {
-                        // Simulate play button click
-                        playButton.click();
-                    }
-                });
-            }
-        }
+        // Clean up any potential references to removed elements
+        console.log('Play button removed. Video is directly accessible via YouTube player.');
 
         // Image Gallery Logic
         const modal = document.getElementById('imageModal');
