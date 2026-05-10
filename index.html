@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
     <style>
+        /* --- Existing styles preserved, minimal additions for notes --- */
         .view-cert-btn, .video-demo-btn {
             display: inline-flex;
             align-items: center;
@@ -89,10 +90,9 @@
             aspect-ratio: 16 / 9;
             display: block;
             border: none;
-            pointer-events: auto; /* Allow clicking directly on the video */
+            pointer-events: auto;
         }
         
-        /* Minimalist label - subtle and clean */
         .preview-label {
             position: absolute;
             top: 12px;
@@ -116,69 +116,46 @@
             font-size: 0.7rem;
         }
         
-        /* Video Modal Styles */
-        .video-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.9);
-            z-index: 2000;
-            justify-content: center;
-            align-items: center;
-            backdrop-filter: blur(5px);
-        }
-        .video-modal-content {
-            position: relative;
-            width: 90%;
-            max-width: 1000px;
-            background: #000;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-        }
-        .close-video-modal {
-            position: absolute;
-            top: -40px;
-            right: 0;
-            color: white;
-            font-size: 32px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.3s;
-            background: rgba(0,0,0,0.6);
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-        }
-        .close-video-modal:hover {
-            color: #e74c3c;
-            background: rgba(0,0,0,0.9);
-        }
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-        }
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
         .project-buttons {
             display: flex;
             gap: 10px;
             align-items: center;
             flex-wrap: wrap;
+        }
+        
+        /* Minimal contribution note - clean text only, no emoji */
+        .project-contribution-note {
+            margin-top: 16px;
+            padding: 10px 0;
+            font-size: 0.85rem;
+            line-height: 1.5;
+            color: #6b6b69;
+            border-top: 1px solid rgba(107, 107, 105, 0.2);
+            border-bottom: 1px solid rgba(107, 107, 105, 0.2);
+        }
+        body.dark-mode .project-contribution-note {
+            color: #cbd5e1;
+            border-top-color: rgba(203, 213, 225, 0.2);
+            border-bottom-color: rgba(203, 213, 225, 0.2);
+        }
+        .project-contribution-note strong {
+            color: #4a4a48;
+            font-weight: 600;
+        }
+        body.dark-mode .project-contribution-note strong {
+            color: #e2e8f0;
+        }
+        .contrib-members {
+            margin-top: 6px;
+            font-size: 0.8rem;
+            color: #7a7a78;
+        }
+        body.dark-mode .contrib-members {
+            color: #a0a0a0;
+        }
+        
+        .project-card-full .inline-video-preview {
+            margin-top: 16px;
         }
         
         @media (max-width: 768px) {
@@ -316,6 +293,7 @@
         <section class="projects-full">
             <h2>Projects</h2>
             <div class="projects-container-full">
+                <!-- KNOT Project Card -->
                 <div class="project-card-full">
                     <h3>KNOT: A Web-Based Alumni Tracking and Engagement Platform (Capstone Project)</h3>
                     <p>Knot is an alumni engagement platform that centralizes alumni data, facilitates school communication, and enables mentorship connections between students and graduates.</p>
@@ -323,7 +301,24 @@
                         <a href="https://www.figma.com/design/MD6lXgrZ4bDhOVucsapsBG/KNOT?node-id=5-2&t=YFTXgYxgku4foQkN-1" target="_blank" class="project-btn figma-btn" title="View Figma Design"><i class="fab fa-figma"></i></a>
                         <a href="https://knot-1.onrender.com" target="_blank" class="project-btn web-btn" title="View Live Website"><i class="fas fa-external-link-alt"></i></a>
                     </div>
+                    
+                    <!-- MINIMAL TEXT NOTE FOR KNOT - no emoji, clean -->
+                    <div class="project-contribution-note">
+                        <strong>My contribution (Knot video & project):</strong> I am the one who edited the video and I am also the one who finalized the design of our website UI/UX, the concept of the name of the application and logo branding and the color branding. I am the one who coded the frontend and some part of the backend.<br>
+                        <div class="contrib-members">Partner Capstone Project — Members: Me (Joshua R. Castañeda) and Jared Raphael N. Oquindo</div>
+                    </div>
+                    
+                    <div class="inline-video-preview">
+                        <div class="video-container-wrapper">
+                            <div class="preview-label">
+                                <i class="fab fa-youtube"></i> KNOT Demo Overview
+                            </div>
+                            <iframe class="preview-iframe" src="https://www.youtube.com/embed/XeV7WDKNt0c" title="KNOT Alumni Platform Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+                    </div>
                 </div>
+                
+                <!-- GymBro Project Card -->
                 <div class="project-card-full">
                     <h3>GymBro: Gym Management System</h3>
                     <p>A centralized web platform that automates gym administration, enhances operational accuracy, and delivers actionable analytics for multi-branch fitness businesses.</p>
@@ -331,14 +326,17 @@
                         <a href="https://www.figma.com/design/akQWL9abddNczoio0Vybf1/GymBro?node-id=0-1&t=Ofaf0sLFI12LSjQ0-1" target="_blank" class="project-btn figma-btn" title="View Figma Design"><i class="fab fa-figma"></i></a>
                     </div>
                     
-                    <!-- CLEAN VIDEO PREVIEW - No play button overlay, just the video thumbnail that plays directly -->
+                    <!-- MINIMAL TEXT NOTE FOR GYMBRO - no emoji, clean -->
+                    <div class="project-contribution-note">
+                        <strong>My contribution (GymBro video & ad):</strong> I edited the video, I helped conceptualize the story and also edited the graphic animation of the advertisement.
+                    </div>
+                    
                     <div class="inline-video-preview">
                         <div class="video-container-wrapper">
                             <div class="preview-label">
                                 <i class="fab fa-youtube"></i> Demo Preview
                             </div>
-                            <!-- Removed the video-play-overlay div completely -->
-                            <iframe id="demoVideo" class="preview-iframe" src="https://www.youtube.com/embed/5buQMf33a6c" title="GymBro Demo Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            <iframe class="preview-iframe" src="https://www.youtube.com/embed/5buQMf33a6c" title="GymBro Demo Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                         </div>
                     </div>
                 </div>
@@ -362,7 +360,6 @@
                         <div class="gallery-item-full" data-index="9"><div class="image-preview" style="background-image: url('https://raw.githubusercontent.com/Ukiidap/Portfolio/main/pictures/9.png');"></div><div class="view-overlay">View</div></div>
                         <div class="gallery-item-full" data-index="10"><div class="image-preview" style="background-image: url('https://raw.githubusercontent.com/Ukiidap/Portfolio/main/pictures/10.png');"></div><div class="view-overlay">View</div></div>
                         <div class="gallery-item-full" data-index="11"><div class="image-preview" style="background-image: url('https://raw.githubusercontent.com/Ukiidap/Portfolio/main/pictures/11.png');"></div><div class="view-overlay">View</div></div>
-                        <!-- Duplicate items for smooth infinite scroll effect -->
                         <div class="gallery-item-full" data-index="1"><div class="image-preview" style="background-image: url('https://raw.githubusercontent.com/Ukiidap/Portfolio/main/pictures/1.png');"></div><div class="view-overlay">View</div></div>
                         <div class="gallery-item-full" data-index="2"><div class="image-preview" style="background-image: url('https://raw.githubusercontent.com/Ukiidap/Portfolio/main/pictures/2.png');"></div><div class="view-overlay">View</div></div>
                         <div class="gallery-item-full" data-index="3"><div class="image-preview" style="background-image: url('https://raw.githubusercontent.com/Ukiidap/Portfolio/main/pictures/3.png');"></div><div class="view-overlay">View</div></div>
@@ -379,22 +376,11 @@
             </div>
         </section>
 
-        <!-- Image Modal -->
         <div class="image-modal" id="imageModal">
             <div class="modal-content">
                 <span class="close-modal">&times;</span>
                 <div class="modal-image-container"><img id="modalImage" src="" alt="Graphic Design"></div>
                 <div class="modal-navigation"><button class="nav-btn prev-btn" id="prevBtn"><i class="fas fa-chevron-left"></i> Previous</button><div class="image-counter" id="imageCounter">1 / 11</div><button class="nav-btn next-btn" id="nextBtn">Next <i class="fas fa-chevron-right"></i></button></div>
-            </div>
-        </div>
-
-        <!-- Video Modal (kept for reference but not actively used) -->
-        <div class="video-modal" id="videoModal">
-            <div class="video-modal-content">
-                <span class="close-video-modal" id="closeVideoModal">&times;</span>
-                <div class="video-container">
-                    <iframe id="youtubeFrame" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
             </div>
         </div>
 
@@ -426,7 +412,6 @@
             }
         });
 
-        // Certificate button - PRESERVED AND WORKING
         const certButton = document.getElementById('viewInternCertBtn');
         if (certButton) {
             certButton.addEventListener('click', function(e) {
@@ -436,14 +421,6 @@
             });
         }
 
-        // Video preview is now fully functional without any play button overlay
-        // The iframe loads directly, allowing users to click the YouTube embed's native play button
-        // This ensures a clean, minimalist interface with no extra UI elements
-        
-        // Clean up any potential references to removed elements
-        console.log('Play button removed. Video is directly accessible via YouTube player.');
-
-        // Image Gallery Logic
         const modal = document.getElementById('imageModal');
         const modalImage = document.getElementById('modalImage');
         const imageCounter = document.getElementById('imageCounter');
@@ -455,7 +432,6 @@
         const totalImages = 11;
         const imagePaths = Array.from({length: totalImages}, (_, i) => `https://raw.githubusercontent.com/Ukiidap/Portfolio/main/pictures/${i + 1}.png`);
         
-        // Filter out duplicate gallery items for the modal (only use unique ones)
         const uniqueGalleryItems = [];
         const seenIndices = new Set();
         galleryItems.forEach(item => {
