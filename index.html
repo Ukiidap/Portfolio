@@ -59,7 +59,7 @@
         .leadership .timeline-item {
             margin-bottom: 28px;
         }
-        /* Video Modal Styles */
+        /* Video Modal Styles - kept for reference but we now have inline preview */
         .video-modal {
             display: none;
             position: fixed;
@@ -123,6 +123,37 @@
             align-items: center;
             flex-wrap: wrap;
         }
+        /* NEW STYLE: Embedded video preview container */
+        .inline-video-preview {
+            margin-top: 20px;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: transform 0.2s ease;
+        }
+        .inline-video-preview:hover {
+            transform: translateY(-3px);
+        }
+        .preview-iframe {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            display: block;
+            border: none;
+        }
+        .preview-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            font-size: 0.75rem;
+            padding: 4px 12px;
+            border-radius: 30px;
+            margin-bottom: 10px;
+            backdrop-filter: blur(4px);
+            width: fit-content;
+        }
         @media (max-width: 768px) {
             .video-demo-btn {
                 margin-left: 0;
@@ -131,6 +162,9 @@
             .project-buttons {
                 flex-direction: column;
                 align-items: flex-start;
+            }
+            .inline-video-preview {
+                margin-top: 16px;
             }
         }
     </style>
@@ -262,8 +296,14 @@
                     <p>A centralized web platform that automates gym administration, enhances operational accuracy, and delivers actionable analytics for multi-branch fitness businesses.</p>
                     <div class="project-buttons">
                         <a href="https://www.figma.com/design/akQWL9abddNczoio0Vybf1/GymBro?node-id=0-1&t=Ofaf0sLFI12LSjQ0-1" target="_blank" class="project-btn figma-btn" title="View Figma Design"><i class="fab fa-figma"></i></a>
-                        <!-- VIDEO DEMO BUTTON for GymBro -->
-                        <button class="video-demo-btn" id="videoDemoBtn"><i class="fab fa-youtube"></i> Watch Demo Video</button>
+                        <!-- VIDEO PREVIEW: embedded directly on the page -->
+                    </div>
+                    <!-- INLINE VIDEO PREVIEW - The video preview is already showing in the website -->
+                    <div class="inline-video-preview">
+                        <div class="preview-label">
+                            <i class="fab fa-youtube"></i> GymBro Demo Preview
+                        </div>
+                        <iframe class="preview-iframe" src="https://www.youtube.com/embed/5buQMf33a6c" title="GymBro Demo Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
@@ -286,6 +326,7 @@
                         <div class="gallery-item-full" data-index="9"><div class="image-preview" style="background-image: url('https://raw.githubusercontent.com/Ukiidap/Portfolio/main/pictures/9.png');"></div><div class="view-overlay">View</div></div>
                         <div class="gallery-item-full" data-index="10"><div class="image-preview" style="background-image: url('https://raw.githubusercontent.com/Ukiidap/Portfolio/main/pictures/10.png');"></div><div class="view-overlay">View</div></div>
                         <div class="gallery-item-full" data-index="11"><div class="image-preview" style="background-image: url('https://raw.githubusercontent.com/Ukiidap/Portfolio/main/pictures/11.png');"></div><div class="view-overlay">View</div></div>
+                        <!-- Duplicate items for smooth infinite scroll effect -->
                         <div class="gallery-item-full" data-index="1"><div class="image-preview" style="background-image: url('https://raw.githubusercontent.com/Ukiidap/Portfolio/main/pictures/1.png');"></div><div class="view-overlay">View</div></div>
                         <div class="gallery-item-full" data-index="2"><div class="image-preview" style="background-image: url('https://raw.githubusercontent.com/Ukiidap/Portfolio/main/pictures/2.png');"></div><div class="view-overlay">View</div></div>
                         <div class="gallery-item-full" data-index="3"><div class="image-preview" style="background-image: url('https://raw.githubusercontent.com/Ukiidap/Portfolio/main/pictures/3.png');"></div><div class="view-overlay">View</div></div>
@@ -311,7 +352,7 @@
             </div>
         </div>
 
-        <!-- Video Modal -->
+        <!-- Video Modal (keeping for any future use but not needed for preview) -->
         <div class="video-modal" id="videoModal">
             <div class="video-modal-content">
                 <span class="close-video-modal" id="closeVideoModal">&times;</span>
@@ -358,49 +399,6 @@
             });
         }
 
-        // YouTube Video Modal
-        const videoModal = document.getElementById('videoModal');
-        const youtubeFrame = document.getElementById('youtubeFrame');
-        const videoDemoBtn = document.getElementById('videoDemoBtn');
-        const closeVideoModal = document.getElementById('closeVideoModal');
-
-        // Extract YouTube video ID from URL (works for youtu.be and youtube.com)
-        function getYouTubeId(url) {
-            const patterns = [
-                /youtu\.be\/([^?]+)/,
-                /youtube\.com\/watch\?v=([^&]+)/,
-                /youtube\.com\/embed\/([^?]+)/
-            ];
-            for (let pattern of patterns) {
-                const match = url.match(pattern);
-                if (match) return match[1];
-            }
-            return null;
-        }
-
-        const videoUrl = 'https://youtu.be/5buQMf33a6c';
-        const videoId = getYouTubeId(videoUrl);
-        const embedUrl = videoId ? `https://www.youtube.com/embed/${videoId}?autoplay=1` : '';
-
-        videoDemoBtn.addEventListener('click', () => {
-            if (embedUrl) {
-                youtubeFrame.src = embedUrl;
-                videoModal.style.display = 'flex';
-                document.body.style.overflow = 'hidden';
-            }
-        });
-
-        function closeVideoModalFunc() {
-            videoModal.style.display = 'none';
-            youtubeFrame.src = ''; // Stop video playback when closing
-            document.body.style.overflow = 'auto';
-        }
-
-        closeVideoModal.addEventListener('click', closeVideoModalFunc);
-        videoModal.addEventListener('click', (e) => {
-            if (e.target === videoModal) closeVideoModalFunc();
-        });
-
         // Image Gallery Logic
         const modal = document.getElementById('imageModal');
         const modalImage = document.getElementById('modalImage');
@@ -437,8 +435,11 @@
                 else if (e.key === 'ArrowLeft' && currentImageIndex > 1) { currentImageIndex--; updateModalImage(); }
                 else if (e.key === 'Escape') { modal.style.display = 'none'; document.body.style.overflow = 'auto'; }
             }
-            if (videoModal.style.display === 'flex' && e.key === 'Escape') closeVideoModalFunc();
         });
+
+        // Note: Video is now embedded directly in the GymBro project card as an inline preview.
+        // The video preview is already showing on the website without needing to click any button.
+        // The separate video modal remains but the main demo video is visible at all times in the project section.
     </script>
 </body>
 </html>
